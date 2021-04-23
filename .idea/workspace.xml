@@ -4,7 +4,9 @@
     <list default="true" id="9591e319-561d-4c1c-9ad5-5ed9ac87c108" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignIn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignIn/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignIn/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
