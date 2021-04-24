@@ -3,11 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="9591e319-561d-4c1c-9ad5-5ed9ac87c108" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EmailPassword/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmailPassword/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignIn/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/User/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/User/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/User/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/User/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/User/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/User/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/createStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/createStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
