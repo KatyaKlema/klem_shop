@@ -1,17 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import FormInput from "../forms/FormInput";
 import Button from "../forms/Button";
-import { auth, handleUserProfile } from "../../firebase/utils";
 import AuthWrapper from "../AuthWrapper";
+import { resetAllAuthForms, signUpUser } from "../../redux/User/actions";
 import "./styles.scss";
-import { withRouter } from "react-router-dom";
 
+const mapState = ({ user }) => ({
+  signUpSuccess: user.signUpSuccess,
+  signUpError: user.signUpError,
+});
 const SignUp = (props) => {
+  const dispatch = useDispatch();
+  const { signUpSuccess, signUpError } = useSelector(mapState);
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    if (signUpSuccess) {
+      resetState();
+      dispatch(resetAllAuthForms());
+      props.history.push("/");
+    }
+  }, [signUpSuccess]);
+
+  useEffect(() => {
+    if (Array.isArray(signUpError) && signUpError.length > 0) {
+      setErrors(signUpError);
+    }
+  }, [signUpError]);
 
   const resetState = () => {
     setDisplayName("");
@@ -22,25 +43,9 @@ const SignUp = (props) => {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    if (password !== confirmPassword) {
-      const err = ["Passwords do not match"];
-      setErrors(err);
-      return;
-    }
-
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await handleUserProfile(user, { displayName });
-      resetState();
-      props.history.push("/");
-    } catch (err) {
-      this.setState({ errors: [err.message] });
-    }
+    dispatch(
+      signUpUser({ displayName, email, password, confirmPassword, setErrors })
+    );
   };
 
   const configAuthWrapper = {

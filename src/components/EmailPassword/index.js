@@ -1,31 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import AuthWrapper from "../AuthWrapper";
-import "./styles.scss";
 import FormInput from "../forms/FormInput";
 import Button from "../forms/Button";
-import { auth } from "../../firebase/utils";
+import { resetAllAuthForms, resetPassword } from "../../redux/User/actions";
+import "./styles.scss";
+
+const mapState = ({ user }) => ({
+  resetPasswordSuccess: user.resetPasswordSuccess,
+  resetPasswordError: user.resetPasswordError,
+});
 
 const EmailPassword = (props) => {
+  const { resetPasswordSuccess, resetPasswordError } = useSelector(mapState);
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = async (event) => {
+  useEffect(() => {
+    if (resetPasswordSuccess) {
+      dispatch(resetAllAuthForms());
+      props.history.push("/login");
+    }
+  }, [resetPasswordSuccess]);
+
+  useEffect(() => {
+    if (Array.isArray(resetPasswordError) && resetPasswordError.length > 0) {
+      setErrors(resetPasswordError);
+    }
+  }, [resetPasswordError]);
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      const config = {
-        url: "http://localhost:3001/login",
-      };
-      await auth
-        .sendPasswordResetEmail(email, config)
-        .then(() => {
-          props.history.push("/login");
-        })
-        .catch(() => {
-          const errors = ["Email not found! Please try again"];
-          setErrors(errors);
-        });
-    } catch (err) {}
+    dispatch(resetPassword({ email }));
   };
 
   const configAuthWrapper = { headline: "Email Password" };

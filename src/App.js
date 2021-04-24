@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Switch, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import HomepageLayout from "./layouts/HomepageLayout";
 import "./default.scss";
@@ -9,24 +9,27 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import { auth, handleUserProfile } from "./firebase/utils";
 import Recovery from "./pages/Recovery";
-import { setCurrentUser } from "./redux/User/actions";
 import Dashboard from "./pages/Dashboard";
 import WithAuth from "./hoc/withAuth";
+import { setCurrentUser } from "./redux/User/actions";
 
 const App = (props) => {
-  const { setCurrentUser, currentUser } = props;
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const authListener = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await handleUserProfile(userAuth);
         userRef.onSnapshot((snapshot) => {
-          setCurrentUser({
-            id: snapshot.id,
-            ...snapshot.data(),
-          });
+          dispatch(
+            setCurrentUser({
+              id: snapshot.id,
+              ...snapshot.data(),
+            })
+          );
         });
       }
-      setCurrentUser(userAuth);
+      dispatch(setCurrentUser(userAuth));
       return () => {
         authListener();
       };
@@ -84,10 +87,4 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
-});
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
