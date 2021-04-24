@@ -46,9 +46,7 @@ class SignUp extends Component {
         ...initialState,
       });
     } catch (err) {
-      let { errors } = this.state;
-      errors.push(err.message);
-      this.setState({ errors: errors });
+      this.setState({ errors: [err.message] });
     }
   };
 
