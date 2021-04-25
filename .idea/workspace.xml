@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9591e319-561d-4c1c-9ad5-5ed9ac87c108" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthWrapper/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthWrapper/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignUp/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/Button/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/Button/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/default.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/rootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/rootSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/rootSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminToolbar/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminToolbar/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
