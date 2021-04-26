@@ -8,6 +8,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import "./default.scss";
 import Homepage from "./pages/Homepage";
 import Registration from "./pages/Registration";
+import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Recovery from "./pages/Recovery";
 import Dashboard from "./pages/Dashboard";
@@ -16,6 +17,7 @@ import { checkUserSession } from "./redux/User/actions";
 import Admin from "./pages/Admin";
 import WithAdminAuth from "./hoc/withAdminAuth";
 import AdminToolbar from "./components/AdminToolbar";
+import Products from "./pages/Products";
 
 const App = (props) => {
   const dispatch = useDispatch();
@@ -35,6 +37,31 @@ const App = (props) => {
             <HomepageLayout>
               <Homepage />
             </HomepageLayout>
+          )}
+        />
+        <Route
+          exact
+          path="/search"
+          render={() => (
+            <MainLayout>
+              <Search />
+            </MainLayout>
+          )}
+        />
+        <Route
+          path="/search/:filterType"
+          render={() => (
+            <MainLayout>
+              <Search />
+            </MainLayout>
+          )}
+        />
+        <Route
+          path="/products"
+          render={() => (
+            <MainLayout>
+              <Products />
+            </MainLayout>
           )}
         />
         <Route

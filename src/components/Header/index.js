@@ -28,6 +28,12 @@ const Header = (props) => {
           {currentUser && (
             <ul>
               <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+              <li>
                 <Link to="/dashboard">My Account</Link>
               </li>
               <li>
