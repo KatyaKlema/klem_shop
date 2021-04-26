@@ -15,10 +15,13 @@ export const handleAddProduct = (product) => {
   });
 };
 
-export const handleFetchProducts = () => {
+export const handleFetchProducts = ({ filterType }) => {
   return new Promise((resolve, reject) => {
-    firestore
-      .collection("products")
+    let ref = firestore.collection("products").orderBy("createdDate");
+
+    if (filterType) ref = ref.where("productCategory", "==", filterType);
+
+    ref
       .get()
       .then((snapshot) => {
         const productsArray = snapshot.docs.map((doc) => {
@@ -30,6 +33,7 @@ export const handleFetchProducts = () => {
         resolve(productsArray);
       })
       .catch((err) => {
+        console.log("error: ", err.message);
         reject(err);
       });
   });
@@ -43,10 +47,11 @@ export const handleDeleteProduct = (documentID) => {
       .doc(documentID)
       .delete()
       .then(() => {
-        console.log(documentID, 2);
+        console.log(documentID, 2, "ok");
         resolve();
       })
       .catch((err) => {
+        console.log("error");
         reject(err);
       });
   });
