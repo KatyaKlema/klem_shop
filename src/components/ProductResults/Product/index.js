@@ -17,7 +17,7 @@ const Product = ({
   };
 
   return (
-    <div className="product">
+    <div>
       <div className="thumb">
         <img src={productThumbnail} alt={productName} />
       </div>

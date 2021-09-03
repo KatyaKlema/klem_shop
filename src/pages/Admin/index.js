@@ -10,6 +10,7 @@ import {
   deleteProductStart,
 } from "../../redux/Products/actions";
 import "./styles.scss";
+import LoadMore from "../../components/LoadMore";
 
 const mapState = ({ productsData }) => ({
   products: productsData.products,
@@ -23,7 +24,7 @@ const Admin = (props) => {
   const [productName, setProductName] = useState("");
   const [productThumbnail, setProductThumbnail] = useState("");
   const [productPrice, setProductPrice] = useState(0);
-
+  const { data, queryDoc, isLastPage } = products;
   useEffect(() => {
     dispatch(fetchProductsStart());
   }, []);
@@ -55,7 +56,17 @@ const Admin = (props) => {
     );
     resetForm();
   };
-
+  const handleLoadMore = () => {
+    dispatch(
+      fetchProductsStart({
+        startAfterDoc: queryDoc,
+        persistProducts: data,
+      })
+    );
+  };
+  const configLoadMore = {
+    onLoadMoreEvt: handleLoadMore,
+  };
   return (
     <div className="admin">
       <div className="callToActions">
@@ -128,33 +139,49 @@ const Admin = (props) => {
                   cellSpacing="0"
                 >
                   <tbody>
-                    {products.map((product, index) => {
-                      const {
-                        productName,
-                        productThumbnail,
-                        productPrice,
-                        documentID,
-                      } = product;
+                    {Array.isArray(data) &&
+                      data.length > 0 &&
+                      data.map((product, index) => {
+                        const {
+                          productName,
+                          productThumbnail,
+                          productPrice,
+                          documentID,
+                        } = product;
 
-                      return (
-                        <tr key={index}>
-                          <td>
-                            <img className="thumb" src={productThumbnail} />
-                          </td>
-                          <td>{productName}</td>
-                          <td>${productPrice}</td>
-                          <td>
-                            <Button
-                              onClick={() =>
-                                dispatch(deleteProductStart(documentID))
-                              }
-                            >
-                              Delete
-                            </Button>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                        return (
+                          <tr key={index}>
+                            <td>
+                              <img className="thumb" src={productThumbnail} />
+                            </td>
+                            <td>{productName}</td>
+                            <td>${productPrice}</td>
+                            <td>
+                              <Button
+                                onClick={() =>
+                                  dispatch(deleteProductStart(documentID))
+                                }
+                              >
+                                Delete
+                              </Button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <table border="0" cellPadding="10" cellSpacing="0">
+                  <tbody>
+                    <tr>
+                      <td>{!isLastPage && <LoadMore {...configLoadMore} />}</td>
+                    </tr>
                   </tbody>
                 </table>
               </td>
