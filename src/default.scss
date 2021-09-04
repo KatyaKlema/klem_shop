@@ -37,7 +37,7 @@ h1 {
   width: 100%;
   padding: 0;
   margin: 0 auto 2rem;
-  font-size: 3.0rem;
+  font-size: 3rem;
   line-height: 3.2rem;
   color: #000000;
   text-align: left;
@@ -85,13 +85,14 @@ a:hover {
   display: inline-block;
   width: 100%;
   height: 100%;
-  padding: 3rem 0 0 25.0rem;
+  padding: 3rem 0 0 25rem;
   //border-bottom: 1px solid #d30021;
 
   .sidebar {
     position: absolute;
-    top: 0; left: 0;
-    width: 25.0rem;
+    top: 0;
+    left: 0;
+    width: 25rem;
     height: 100%;
     z-index: 1;
     //border-right: 1px solid #d3d3d3;

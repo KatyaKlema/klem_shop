@@ -18,21 +18,18 @@
     margin-top: 6.5rem;
   }
 
-
   table.results {
     background-color: #f8f0eb;
     height: auto;
     tr {
-
       &:nth-child(even) {
         background-color: #d6d1d1;
       }
 
       .thumb {
-        width: 15.0rem;
+        width: 15rem;
         margin: 0 auto;
       }
-
     }
   }
 }
